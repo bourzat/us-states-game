@@ -33,8 +33,9 @@ while len(states_guessed) < 50:
     if answer_state.lower() == "exit":
         unnamed_states = list(set(states_list).symmetric_difference(states_guessed))
         with open("states_to_learn.csv", "w") as states_to_learn:
-            for state in unnamed_states:
-                states_to_learn.write(f"{state} \n")
+            [states_to_learn.write(f"{state} \n") for state in unnamed_states]
+            # for state in unnamed_states:
+            #     states_to_learn.write(f"{state} \n")
         break
 
     # Check if the guessed state is correct
